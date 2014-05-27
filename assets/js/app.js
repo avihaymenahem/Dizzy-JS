@@ -73,6 +73,7 @@ function moveToSmallPlayer()
         win.setResizable(true);
         win.setMinimumSize(674, 541);
         win.resizeTo(674, 541);
+        win.setPosition("center");
     }
     else
     {
