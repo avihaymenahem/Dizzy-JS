@@ -147,11 +147,24 @@ function uploadTrackToLib()
     }
 }
 
+function getFileExt(fname)
+{
+    return fname.substr((~-fname.lastIndexOf(".") >>> 0) + 2);
+}
+
 function addNewTrack(path)
 {
     if(path != undefined && path && path.length)
     {
+        var allowedFileExt = ["mp3", "wav", "wma", "ogg", "flac", "mp4" ];
         var fileName = path.replace(/^.*(\\|\/|\:)/, '');
+        var fileExt = getFileExt(path);
+
+        if(allowedFileExt.indexOf((fileExt)) < 0)
+        {
+            alert(fileName + " is not a valid/supported music file");
+            return false;
+        }
         return TDB.checkTrackExist(path, function(e){
             if(!e.length)
             {
@@ -167,7 +180,7 @@ function addNewTrack(path)
             }
             else
             {
-                alert("That track already exists!");
+                alert(fileName + " already exists!");
             }
         });
     }
