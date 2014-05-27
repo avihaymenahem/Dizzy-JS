@@ -172,7 +172,10 @@
 
             if(percentComplete * 100 == 100)
             {
-                return this.nextSong();
+                this.audioPlayer.pause();
+                this.nextSong();
+                this.audioPlayer.play();
+                return true;
             }
 
             return this.$progressBar.css({
