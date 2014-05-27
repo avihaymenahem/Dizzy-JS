@@ -1,5 +1,5 @@
 {
-  "main": "index.html",
+  "main": "app.html",
   "name": "Dizzy",
   "description": "Javascript Desktop Music Player",
   "version": "0.1.0",

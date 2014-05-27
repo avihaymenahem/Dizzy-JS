@@ -16,6 +16,11 @@ function TracksDAO()
             "('" + TrackObject.path + "','" + TrackObject.pic + "','" + TrackObject.track_name + "','" + TrackObject.artist_name + "','" + TrackObject.album_name + "','" + TrackObject.release_date + "','" + TrackObject.track_number + "','" + TrackObject.length + "','" + TrackObject.date_added + "')");
     };
 
+    this.removeSong = function(index)
+    {
+        this.execute("DELETE FROM m_songs WHERE track_id = " + index);
+    };
+
     this.checkTrackExist = function(TrackPath, callback) {
         this.execute("SELECT track_id FROM m_songs WHERE path = '" + TrackPath + "'", function(e){
             if(callback) callback(e);

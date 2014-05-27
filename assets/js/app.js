@@ -48,9 +48,19 @@ function attachEvents()
     $("#Popup .close").click(function(){ $("#Popup").fadeOut("fast") });
     $(".sidebar li:not(.selfLinked)").click(function(){ menuItemClick($(this)) });
     $("#AddSongInput").change(function(){uploadTrackToLib()});
-    $("body").on("click", ".SongBox", function(e){ ap.goToSong($(this).attr("data-index")); $(".fa-play").click() });
+    $("body").on("click", ".SongBox", function(e){ ap.goToSong($(this).attr("data-index"), songDoesntExistsCallback); $(".fa-play").click() });
     $(".searchInput").keyup(function(){ search() });
     $(".SmallPlayer").click(function(){ moveToSmallPlayer() });
+}
+
+function songDoesntExistsCallback(index)
+{
+    alert("The file does not exist anymore");
+    tl.splice(index);
+    var trackElement = $(".SongBox[data-index=" + index + "]"),
+        trackID = trackElement.attr("data-trackid");
+    trackElement.remove();
+    TDB.removeSong(trackID);
 }
 
 function moveToSmallPlayer()
@@ -264,6 +274,7 @@ function appendTrackToDom(Track, index)
         });
         cloned.find(".SongName").attr("data-fullname", Track.track_name).text(TrackName);
         cloned.find(".SongArtist").attr("data-artist", Track.artist_name).text(ArtistName);
+        cloned.attr("data-trackid", Track.track_id);
 
         Wrapper.append(cloned);
 }

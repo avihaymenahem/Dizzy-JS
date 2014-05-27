@@ -68,7 +68,17 @@
             }
         };
 
-        AudioPlayerUI.prototype.goToSong = function(index) {
+        AudioPlayerUI.prototype.goToSong = function(index, callback) {
+            if(callback)
+            {
+                var fs = require('fs');
+                fs.exists(this.songs[index].path, function(exists) {
+                    if (!exists) {
+                        // Do something
+                        callback(index);
+                    }
+                });
+            }
             var wasPlaying;
             this.currentSong = index;
             wasPlaying = this.audioPlayer.isPlaying();
