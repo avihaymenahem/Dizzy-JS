@@ -2,6 +2,10 @@
 
 **Dizzy** is a desktop javascript media player build on top of **Node-Webkit**.
 
+### IMPORTANT ###
+You can't run the program without using the node webkit framework!
+Everything will be broken...
+
 ### Open Dizzy: ###
 1. Fork / Download the repository to your desktop
 2. Download the prebuilt binary files from : https://github.com/rogerwang/node-webkit (Mac, Windows, Linux)
