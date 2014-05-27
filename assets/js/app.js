@@ -4,6 +4,19 @@ var ap,init,tl = [];
 var gui = require('nw.gui'),
     win = gui.Window.get();
 
+document.addEventListener('dragover', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+}, false);
+
+document.addEventListener('drop', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    uploadTrackToLib(e.dataTransfer.files);
+    return false;
+}, false);
+
 $(function(){
     TDB.getSettings(function(e){
         e = e ? e[0] : null;
@@ -135,9 +148,9 @@ function openUploadPopup()
     
 }
 
-function uploadTrackToLib()
+function uploadTrackToLib(files)
 {
-    var files = document.getElementById("AddSongInput").files;
+    files = files && files.length ? files : document.getElementById("AddSongInput").files;
     if(files.length)
     {
         for(var i in files)
