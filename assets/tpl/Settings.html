@@ -1,0 +1,36 @@
+<form class="pure-form pure-form-stacked">
+    <fieldset>
+        <legend>Settings</legend>
+
+        <label for="ThemeSelector">Theme</label>
+        <select id="ThemeSelector">
+            <option value="2">Light</option>
+            <option value="1">Dark</option>
+        </select>
+
+        <br/>
+
+        <button type="button" class="pure-button pure-button-primary saveSettings">Save Settings</button>
+    </fieldset>
+</form>
+
+<script>
+    $(function(){
+        TDB.getSettings(function(e){
+            var settings = e.length ? e[0] : Settings,
+                theme = settings.theme;
+
+            $("#ThemeSelector").find("option[value=" + theme + "]").attr("selected", "selected");
+        });
+
+        $(".saveSettings").click(function(){ saveSettings() });
+    });
+
+    function saveSettings()
+    {
+        var setting = Settings;
+        setting.theme = $("#ThemeSelector").val();
+        TDB.updateSettings(setting);
+        setUIBySettings(setting);
+    }
+</script>

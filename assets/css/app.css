@@ -1,0 +1,386 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
+html
+{
+    background: transparent;
+    height: 100%;
+}
+
+body
+{
+    height: 100%;
+    background: #1e1c1f;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-user-select: none;
+    overflow: hidden;
+    background: #303030 !important;
+}
+
+header
+{
+    -webkit-app-region: drag;
+    left: 0;
+    background: #1e1c1f;
+    z-index: 999;
+    height: 51px;
+    top: 0;
+    padding-top: 6px;
+    border-bottom: 1px solid #303030;
+    position: fixed;
+    width: 100%;
+}
+
+header .headerInsider
+{
+    padding: 14px;
+}
+
+header .buttons
+{
+    text-align: right;
+}
+
+header .actionButton
+{
+    -webkit-app-region: no-drag;
+    height: 10px;
+    width: 10px;
+    display: block;
+    background: #5b595c;
+    border-radius: 5em;
+    float: right;
+    margin: 5px 2px;
+    -webkit-transition: 0.2s;
+    cursor: pointer;
+}
+
+header .actionButton.close:hover { background: red; }
+header .actionButton.expand:hover { background: green; }
+header .actionButton.minimize:hover { background: yellow; }
+
+header .logo
+{
+    color: #008ed4;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 30px;
+    line-height: 15px;
+}
+
+header input.searchInput
+{
+    -webkit-app-region: no-drag;
+    margin-top: -10px;
+    background: #181619;
+    color: #5b595c;
+    border: 1px solid #211f22 !important;
+    box-shadow: none !important;
+    width: calc(100% - 15px) !important;
+    margin-left: 15px;
+}
+
+.mainWrapper
+{
+    padding-left: 15px;
+    margin-top: 58px;
+    overflow: hidden;
+    height: calc(100% - 138px);
+} 
+
+.content
+{
+    overflow: auto;
+    padding-top: 10px;
+    height: calc(100% - 10px);
+}
+
+.content::-webkit-scrollbar { width: 15px; }
+.content::-webkit-scrollbar-track { background-color: #181619; }
+.content::-webkit-scrollbar-thumb { background-color: #525053; cursor: pointer; }
+.content::-webkit-scrollbar-button { height:0; }
+
+.sidebar
+{
+    display: block;
+}
+
+.sidebar h2
+{
+    color: #bcbbbc;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.sidebar ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.sidebar ul li
+{
+    font-family: 'Open Sans', sans-serif;
+    color: #626163;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.sidebar ul li.active,
+.sidebar ul li:hover
+{
+    cursor:pointer;
+    color: #0098d8;
+}
+
+.sidebar ul li.active::before
+{
+    position: fixed;
+    content: "";
+    display:block;
+    width: 0; 
+	height: 0; 
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 9px solid #0098d8;
+    margin-top: 3px;
+    left: 0;
+}
+
+.SongBoxForClone
+{
+    display: none;
+}
+
+.MusicList .SongBox
+{
+    display: inline-block;
+    width: 150px;
+    min-height: 185px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    margin: 0 0 10px 15px;
+}
+
+.MusicList .SongBox .AlbumTopper
+{
+    position: absolute;
+    display: block;
+    width: 150px;
+    height: 150px;
+    box-shadow: inset 0 0 0 4px rgba(255,255,255,0.2);
+    -webkit-transition: 0.3s;
+}
+
+.MusicList .SongBox:hover .AlbumTopper
+{
+    background: rgba(0,0,0,0.7);
+}
+
+.MusicList .SongBox .AlbumCover
+{
+    display: block;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.MusicList .SongBox .AlbumCover img
+{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: block;
+}
+
+.MusicList .SongBox .SongDetails
+{
+    margin-top: 3px;
+}
+
+.MusicList .SongBox .SongDetails span
+{
+    display: block;
+    text-align: center;
+}
+
+.MusicList .SongBox .SongDetails .SongName
+{
+    font-size: 12px;
+    color: #bcbbbc;
+}
+
+.MusicList .SongBox .SongDetails .SongArtist
+{
+    font-size: 11px;
+    color: #626163;
+}
+
+.player
+{
+    -webkit-app-region: drag;
+    bottom: 0;
+    display: block;
+    height: 87px;
+    width: 100%;
+    background: #1e1c1f;
+    position: fixed;
+    box-sizing: border-box;
+    border-top: 1px solid #303030;
+    z-index: 9998;
+    padding: 10px;
+    overflow: hidden;
+    left: 0;
+    top: auto;
+}
+
+.player .PlayerAlbumCover img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.player .progress
+{
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+    font-size: 9px;
+    height: 8px;
+    overflow: hidden;
+    background-color: #0e0e0e;
+    color: transparent;
+    border: 0;
+}
+
+.player .PlayerVolume
+{
+    padding-top: 20px;
+}
+
+.player .PlayerVolume .progress
+{
+    -webkit-app-region: no-drag;
+    margin-top: 2px;
+    width: calc(100% - 20px);
+}
+
+.player .PlayerVolume .fa
+{
+    -webkit-app-region: no-drag;
+    float: left;
+}
+
+.player .PlayerProgression
+{
+    margin-top: 5px;
+}
+
+.player .progress-bar
+{
+    -webkit-app-region: no-drag;
+    background: #00abff;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00abff), color-stop(100%,#119de2));
+    box-shadow: none;
+}
+
+.player .ArtistName,
+.player .TrackProgress
+{
+    display: block;
+    font-size: 11px;
+    color: #626163;
+}
+
+.player .TrackName
+{
+    color: #bcbbbc;
+}
+
+.player .PlayerActions
+{
+    margin-top: 3px;
+    text-align: center;
+}
+
+.player .PlayerActions .fa
+{
+    -webkit-app-region: no-drag;
+}
+
+.player .TrackInfo
+{
+    margin-top: 2px;
+}
+
+.player .SmallPlayer
+{
+    -webkit-app-region: no-drag;
+    text-align: right;
+    margin-top: 15px;
+}
+
+#Popup
+{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0,0.4);
+    top: 0;
+    z-index: 999;
+    left: 0;
+    color: #000;
+}
+
+#Popup .PopupContent
+{
+    width: 400px;
+    min-height: 200px;
+    padding: 10px;
+    display: block;
+    background: #fff;
+    margin: 100px auto;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 0 10px #000;
+}
+
+#Popup .PopupContent .close
+{
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-weight: 900;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+
+.fa
+{
+    margin-right: 5px;
+    cursor: pointer;
+    display: inline-block;
+    background: url("../img/sprite.png") no-repeat;
+}
+
+.fa.fa-play { background-position: -24px -44px; width: 41px; height: 42px; }
+.fa.fa-play:hover { background-position: -24px 0; }
+.fa.fa-stop { background-position: -54px 0; }
+.fa.fa-stop:hover { background-position: -54px -27px; }
+.fa.fa-step-backward { background-position: 0 -60px; height: 25px; width: 16px; }
+.fa.fa-step-backward:hover { background-position: 0 -16px; }
+.fa.fa-step-forward { background-position: -71px -60px; height: 25px; width: 16px; }
+.fa.fa-step-forward:hover { background-position: -71px -16px; }
+.fa.fa-pause { background-position: -137px -44px; width: 41px; height: 42px; }
+.fa.fa-pause:hover { background-position: -137px 0; }
+.fa.fa-volume { background-position: -92px -60px; width: 15px; height: 12px; }
+.fa.fa-volume:hover { background-position: -92px -16px; }
+.fa.fa-small-player { background-position: -112px -58px; width: 21px; height: 19px; }
+.fa.fa-small-player:hover { background-position: -112px -14px; }

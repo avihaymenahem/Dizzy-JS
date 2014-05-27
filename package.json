@@ -1,0 +1,19 @@
+{
+  "main": "index.html",
+  "name": "Dizzy",
+  "description": "Javascript Desktop Music Player",
+  "version": "0.1.0",
+  "keywords": [ "Dizzy", "node-webkit" ],
+  "single-instance" : true,
+  "window": {
+    "title": "Dizzy",
+    "toolbar": false,
+    "icon" : "assets/img/cover.jpg",
+    "frame": false,
+    "width": 674,
+    "height": 541,
+    "position": "center",
+    "min_width": 674,
+    "min_height": 541
+  }
+}

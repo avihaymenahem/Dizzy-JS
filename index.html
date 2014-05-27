@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Dizzy</title>
+  <meta name="description" content="Dizzy">
+  <meta name="author" content="Avihay Menahem">
+
+  <link rel="stylesheet" href="assets/css/pure.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/white_theme.css" data-theme="true">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script type="text/javascript" src="assets/js/Lib/jquery.js"></script>
+  <script type="text/javascript" src="assets/js/Lib/moment.js"></script>
+  <script type="text/javascript" src="assets/js/Player/AudioPlayer.js"></script>
+  <script type="text/javascript" src="assets/js/Player/AudioPlayerUI.js"></script>
+  <script type="text/javascript" src="assets/js/DB/TrackDAO.js"></script>
+  <script type="text/javascript" src="assets/js/Model/Pages.js"></script>
+  <script type="text/javascript" src="assets/js/Model/Settings.js"></script>
+  <script type="text/javascript" src="assets/js/Model/Themes.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="headerInsider pure-g">
+            <div class="logo pure-u-15-24">Dizzy</div>
+            <div class="search pure-u-7-24">
+                <div class="pure-form">
+                    <input type="text" placeholder="Search..." class="searchInput pure-input-1">
+                </div>
+            </div>
+            <div class="buttons pure-u-2-24">
+                <div class="actionButton close" id="ActionButtonClose"></div>
+                <div class="actionButton expand" id="ActionButtonExpand"></div>
+                <div class="actionButton minimize" id="ActionButtonMinimize"></div>
+            </div>
+        </div>
+    </header>
+    <section class="pure-g mainWrapper">
+        <div class="sidebar pure-u-5-24">
+            <h2>Collection</h2>
+            <ul>
+                <li data-id="6" class="active">All Tracks</li>
+                <li class="selfLinked" id="addTracks">Add Tracks</li>
+            </ul>
+
+            <h2>Playlists</h2>
+            <ul>
+                <li>Add New Playlist</li>
+            </ul>
+            
+            <ul>
+                <li data-id="2">Settings</li>
+                <li data-id="3">Help</li>
+                <li data-id="4">Donate</li>
+            </ul>
+        </div>
+        <div class="content pure-u-19-24"></div>
+    </section>
+
+    <div class="player" id="PlayerElement">
+        <div class="pure-g">
+            <div class="PlayerAlbumCover pure-u-2-24">
+            </div>
+            <div class="TrackInfo pure-u-7-24">
+                <span class="ArtistName">Shpongle</span>
+                <span class="TrackName">Nothing is something worth...</span>
+                <span class="TrackProgress">00:00 / 00:00</span>
+            </div>
+            <div class="PlayerActions pure-u-6-24">
+                <span class="fa fa-step-backward"></span>
+                <span class="fa fa-play"></span>
+                <span class="fa fa-step-forward"></span>
+            </div>
+            <div class="PlayerVolume pure-u-7-24">
+                <span class="fa fa-volume"></span>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                        <span class="sr-only">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="SmallPlayer pure-u-2-24">
+                <span class="fa fa-small-player"></span>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="PlayerProgression PlayerTrackInfo pure-u-24-24">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                        <span class="sr-only">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input id="AddSongInput" type="file" style="display:none;"  multiple="">
+    <div id="Popup">
+        <div class="PopupContent">
+            <div class="close">X</div>
+            <div class="con"></div>
+        </div>
+    </div>
+</body>
+</html>
