@@ -14,10 +14,8 @@ Currently in progress:
 - Youtube tracks
 - Video support
 
-### Contact ###
-email: Avihay@tracx.com
--
-facebook: Avihay Menahem
+#### Contact
+facebook: Avihay Menahem,  email: Avihay@tracx.com
 
 
 Licence
