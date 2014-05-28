@@ -2,10 +2,10 @@
 ### The world's first javascript based player ###
 
 **Dizzy** is a desktop javascript media player build on top of **Node-Webkit**.
-
+-
 **Built exclusively for Comfort** Dizzy built on top of web language to make extension and themes building process in simple steps.
 
-### Current version supports windows only ###
+- Current version supports windows only
 
 Currently in progress:
 -
@@ -16,7 +16,7 @@ Currently in progress:
 
 ### Contact ###
 email: Avihay@tracx.com
-
+-
 facebook: Avihay Menahem
 
 
