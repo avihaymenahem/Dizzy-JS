@@ -1,4 +1,5 @@
-## Welcome to Dizzy ## - ### The world's first javascript based player ###
+## Welcome to Dizzy ##
+### The world's first javascript based player ###
 
 **Dizzy** is a desktop javascript media player build on top of **Node-Webkit**.
 
