@@ -404,7 +404,7 @@ header input.searchInput
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.8);
     top: 0;
     z-index: 999;
     left: 0;
@@ -413,13 +413,12 @@ header input.searchInput
 
 #Popup .PopupContent
 {
-    width: 400px;
-    min-height: 200px;
+    width: 300px;
+    min-height: 50px;
     padding: 10px;
     display: block;
     background: #fff;
     margin: 100px auto;
-    border-radius: 10px;
     position: relative;
     box-shadow: 0 0 10px #000;
 }
@@ -427,11 +426,20 @@ header input.searchInput
 #Popup .PopupContent .close
 {
     position: absolute;
-    top: 5px;
-    right: 8px;
+    top: -10px;
+    right: -10px;
     font-weight: 900;
     font-family: 'Open Sans', sans-serif;
     cursor: pointer;
+    background: #000;
+    width: 21px;
+    height: 21px;
+    text-align: center;
+    border-radius: 10em;
+    line-height: 21px;
+    box-shadow: 0 0 6px #000;
+    font-size: 12px;
+    color: #fff;
 }
 
 .fa
