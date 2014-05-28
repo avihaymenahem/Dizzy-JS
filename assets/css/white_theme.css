@@ -40,3 +40,8 @@ header input.searchInput
 
 .content::-webkit-scrollbar-track { background-color: #c5c5c5; }
 .content::-webkit-scrollbar-thumb { background-color: #9d9d9d; cursor: pointer; }
+
+.MusicList.TableView .SongBox:hover
+{
+    background: #f5f5f5;
+}

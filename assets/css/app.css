@@ -157,6 +157,13 @@ header input.searchInput
     display: none;
 }
 
+.MusicList .ShowType
+{
+    margin-left: 13px;
+    height: 20px;
+    margin-bottom: 7px;
+}
+
 .MusicList .SongBox
 {
     display: inline-block;
@@ -221,6 +228,71 @@ header input.searchInput
     font-size: 11px;
     color: #626163;
 }
+
+/** Table View */
+.MusicList.TableView .SongBox
+{
+    width: 235px;
+    min-height: inherit;
+    margin: 0 0 10px 14px;
+}
+
+.MusicList.TableView .SongBox:hover
+{
+    background: #262626;
+}
+
+.MusicList.TableView .SongBox .AlbumTopper
+{
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.MusicList.TableView .SongBox:hover .AlbumTopper
+{
+    background: transparent;
+}
+
+.MusicList.TableView .SongBox .AlbumCover
+{
+    margin-right: 10px;
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.MusicList.TableView .SongBox .AlbumCover img
+{
+    width: 40px;
+    height: 40px;
+}
+
+.MusicList.TableView .SongBox .SongDetails
+{
+    float: left;
+    display: block;
+    margin-top: 3px;
+}
+
+.MusicList.TableView .SongBox .SongDetails span
+{
+    display: block;
+    text-align: left;
+}
+
+.MusicList.TableView .SongBox .SongDetails .SongName
+{
+    font-size: 12px;
+    color: #bcbbbc;
+}
+
+.MusicList.TableView .SongBox .SongDetails .SongArtist
+{
+    font-size: 11px;
+    color: #626163;
+}
+/** End Table View */
 
 .player
 {
@@ -384,3 +456,8 @@ header input.searchInput
 .fa.fa-volume:hover { background-position: -92px -16px; }
 .fa.fa-small-player { background-position: -112px -58px; width: 21px; height: 19px; }
 .fa.fa-small-player:hover { background-position: -112px -14px; }
+.fa.fa-gallery { background-position: -181px -58px; width: 17px; height: 16px; }
+.fa.fa-gallery:hover { background-position: -181px -14px; }
+.fa.fa-table { background-position: -201px -58px; width: 16px; height: 16px; }
+.fa.fa-table:hover { background-position: -201px -14px; }
+

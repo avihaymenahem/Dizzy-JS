@@ -48,9 +48,23 @@ function attachEvents()
     $("#Popup .close").click(function(){ $("#Popup").fadeOut("fast") });
     $(".sidebar li:not(.selfLinked)").click(function(){ menuItemClick($(this)) });
     $("#AddSongInput").change(function(){uploadTrackToLib()});
-    $("body").on("click", ".SongBox", function(e){ ap.goToSong($(this).attr("data-index"), songDoesntExistsCallback); $(".fa-play").click() });
     $(".searchInput").keyup(function(){ search() });
     $(".SmallPlayer").click(function(){ moveToSmallPlayer() });
+
+    $("body").on("click", ".SongBox", function(e){ ap.goToSong($(this).attr("data-index"), songDoesntExistsCallback); $(".fa-play").click() });
+    $("body").on("click", ".MusicList .ShowType i", function(){ changeMainView($(this)); });
+}
+
+function changeMainView(element)
+{
+    if(element.hasClass("fa-gallery"))
+    {
+        $(".MusicList").removeClass("TableView");
+    }
+    else
+    {
+        $(".MusicList").addClass("TableView");
+    }
 }
 
 function songDoesntExistsCallback(index)
