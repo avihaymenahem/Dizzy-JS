@@ -23,7 +23,7 @@ header
     -webkit-app-region: drag;
     left: 0;
     background: #1e1c1f;
-    z-index: 999;
+    z-index: 998;
     height: 51px;
     top: 0;
     padding-top: 6px;
@@ -469,3 +469,13 @@ header input.searchInput
 .fa.fa-table { background-position: -201px -58px; width: 16px; height: 16px; }
 .fa.fa-table:hover { background-position: -201px -14px; }
 
+#Loader
+{
+    display: none;
+    top: 0;
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../img/loader.gif") center center no-repeat rgba(0,0,0,0.9);
+}

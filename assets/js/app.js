@@ -1,7 +1,9 @@
-var TDB = new TracksDAO();
-var ap,init,tl = [];
-
-var gui = require('nw.gui'),
+var TDB = new TracksDAO(),
+    ap,
+    Loader,
+    init,
+    tl = [],
+    gui = require('nw.gui'),
     win = gui.Window.get();
 
 document.addEventListener('dragover', function(e){
@@ -18,6 +20,7 @@ document.addEventListener('drop', function(e){
 }, false);
 
 $(function(){
+    Loader = $("#Loader");
     TDB.getSettings(function(e){
         e = e ? e[0] : null;
         setUIBySettings(e);
@@ -101,19 +104,19 @@ function moveToSmallPlayer()
 
 function search()
 {
-    var searchInput = $(".searchInput"),
-        value = searchInput.val().toLowerCase();
+    var value = $(".searchInput").val().toLowerCase(),
+        el = $(this);
 
     if(value)
     {
         $(".SongBox").each(function(){
-            if($(this).find(".SongName").attr("data-fullname").toLowerCase().indexOf(value) >= 0 || $(this).find(".SongArtist").attr("data-artist").toLowerCase().indexOf(value) >= 0)
+            if(el.find(".SongName").attr("data-fullname").toLowerCase().indexOf(value) >= 0 || el.find(".SongArtist").attr("data-artist").toLowerCase().indexOf(value) >= 0)
             {
-                $(this).show();
+                el.show();
             }
             else
             {
-                $(this).hide();
+                rk.hide();
             }
         });
     }
@@ -149,17 +152,6 @@ function menuItemClick(element)
     }
 }
 
-function loadPage(url, callback, container)
-{
-    var fs = require('fs');
-    container = container ? container : $(".mainWrapper .content");
-    fs.readFile(url, 'utf-8', function(err, data){
-        container.html(data);
-        if(callback && window[callback])
-            window[callback]();
-    });
-}
-
 function openUploadPopup()
 {
     $("#AddSongInput").click();
@@ -178,20 +170,13 @@ function uploadTrackToLib(files)
     files = files && files.length ? files : document.getElementById("AddSongInput").files;
     if(files.length)
     {
-        for(var i in files)
-        {
-            addNewTrack(files[i].path);
-        }
+        for(var i in files) { addNewTrack(files[i].path); }
     }
-}
-
-function getFileExt(fname)
-{
-    return fname.substr((~-fname.lastIndexOf(".") >>> 0) + 2);
 }
 
 function addNewTrack(path)
 {
+    Loader.show();
     if(path != undefined && path && path.length)
     {
         var allowedFileExt = ["mp3", "wav", "wma", "ogg", "flac", "mp4" ];
@@ -220,8 +205,10 @@ function addNewTrack(path)
             {
                 alert(fileName + " already exists!");
             }
+            Loader.hide();
         });
     }
+    return true;
 }
 
 function getTrackDetails(name, path, callback)
